@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <p>hello!</p>
-  </div>
+  <TheAppLayout>
+    <RouterView />
+  </TheAppLayout>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheAppLayout from "@/elements/layout/TheAppLayout.vue";
+</script>
 
 <style scoped></style>

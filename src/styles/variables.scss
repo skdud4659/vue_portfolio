@@ -1,0 +1,12 @@
+$gs-width: 256px;
+$color-dark: #323232;
+$color-white: #ffffff;
+$color-main: #a7727d;
+$color-dark-base: #eddbc7;
+$color-light-base: #f8ead8;
+$color-base: #f9f5e7;
+
+@mixin flex-row {display: flex;flex-direction: row;}
+@mixin flex-column {display: flex;flex-direction: column;}
+@mixin type-14 {font-size: 1rem; line-height: 1.214rem;}
+@mixin font-noto-sans-kr{font-family:'Noto Sans KR','Nanum Square','Apple SD Gothic Neo',AppleSDGothicNeo,'Malgun Gothic','맑은 고딕',Roboto,'Helvetica Neue','애플 SD 산돌고딕 Neo',dotum,gulim,Helvetica,Arial,sans-serif}

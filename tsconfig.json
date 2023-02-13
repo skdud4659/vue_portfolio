@@ -6,7 +6,7 @@
     "src/**/*.vue"
   ],
   "compilerOptions": {
-    "baseUrl": "./vue-project",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
