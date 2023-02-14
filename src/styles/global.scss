@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "./reset.scss";
 
-html,body{height:100%;-ms-overflow-style:none}
+html,body{height:100%;background-color:$color-dark-base;-ms-overflow-style:none}
 html{overflow-x:hidden;overflow-y:scroll;width:100%}
 
 h1.hidden_visible{
@@ -12,10 +12,13 @@ h1.hidden_visible{
 }
 
 aside#aside {
+  @include flex-column;
+  position:absolute;
+  top:0;
+  left:0;
   width: $gs-width;
   height:100vh;
   padding: 50px 20px;
-  background-color: $color-dark-base;
   section{
     &.user_info_section{
       figure{
@@ -23,11 +26,10 @@ aside#aside {
         height:105px;
         margin-right:auto;
         margin-left:auto;
-        background-color: $color-white;
-        border-radius: 50%;
         img{
           width:105px;
           height:105px;
+          border-radius: 50%;
         }
       }
       .user_contact{
@@ -49,7 +51,7 @@ aside#aside {
             &::after {
               content: '';
               position: absolute;
-              top: 7px;
+              top: 8px;
               left: 9.5px; 
               width: 6px;
               height: 6px; 
@@ -57,11 +59,24 @@ aside#aside {
               border-top: 1px solid $color-dark; 
               border-right: 1px solid $color-dark;
               transform: rotate(135deg);
+              @include transform-anim;
+            }
+            &.visible{
+              &::after{
+                top: 11px;
+                transform: rotate(315deg);
+                @include transform-anim;
+              }
             }
           }
         }
         .menu_box{
-          width: 50%;
+          position:absolute;
+          pointer-events:none;
+          opacity: 0;
+          left:25%;
+          width: 0;
+          height:0;
           margin-top:10px;
           margin-right:auto;
           margin-left:auto;
@@ -76,9 +91,88 @@ aside#aside {
               background-color: $color-light-base;
               cursor: pointer;
             }
+            a{
+              display: block;
+              width: 100%;
+              height:100%;
+            }
+          }
+          &.visible{
+            pointer-events:auto;
+            opacity: 1;
+            width: 50%;
+            height:auto;
+            @include opacity-anim;
           }
         }
       }
     }
+    &.side_list_section{
+      flex:1;
+      padding:28px 36px;
+      background-color: $color-light-base;
+      border-radius: 10px;
+      li {
+        @include type-16;
+        font-weight: 700;
+        & + li {
+          margin-top:15px;
+        }
+      }
+    }
+    & + section {
+      margin-top:25px;
+    }
+  }
+}
+
+nav#navigation{
+  position:absolute;
+  top:0;
+  right:0;
+  width:$gn-width;
+  height:100vh;
+  padding: 50px;
+  ul {
+    @include flex-column;
+    gap: 35px;
+    li {
+      font-weight: 700;
+      text-align: center;
+      &:hover{
+        a{
+          color:$color-main
+        }
+      }
+      &.isSelected{
+        a{
+          position: relative;
+          color:$color-main;
+          &::before{
+            position:absolute;
+            content: '';
+            bottom:0;
+            left:0;
+            width:100%;
+            border-bottom: 1px solid $color-main;
+          }
+        }
+      }
+    }
+  }
+}
+
+main#main{
+  margin-left:$gs-width;
+  margin-right:$gn-width;
+  padding: 15px 20px;
+  background-color: $color-base;
+  border-radius: 15px;
+  .main_contents{
+    width:100%;
+    height:calc(100vh - 30px);
+    padding:30px;
+    background-color: $color-light-base;
+    border-radius: 10px;
   }
 }

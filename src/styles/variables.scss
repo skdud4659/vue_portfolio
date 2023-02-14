@@ -1,4 +1,5 @@
 $gs-width: 256px;
+$gn-width: 165px;
 $color-dark: #323232;
 $color-white: #ffffff;
 $color-main: #a7727d;
@@ -9,4 +10,8 @@ $color-base: #f9f5e7;
 @mixin flex-row {display: flex;flex-direction: row;}
 @mixin flex-column {display: flex;flex-direction: column;}
 @mixin type-14 {font-size: 1rem; line-height: 1.214rem;}
+@mixin type-16 {font-size: 1.143rem; line-height: 1.357rem;}
 @mixin font-noto-sans-kr{font-family:'Noto Sans KR','Nanum Square','Apple SD Gothic Neo',AppleSDGothicNeo,'Malgun Gothic','맑은 고딕',Roboto,'Helvetica Neue','애플 SD 산돌고딕 Neo',dotum,gulim,Helvetica,Arial,sans-serif}
+
+@mixin opacity-anim($duration:200ms,$ease:ease-in-out){transition:opacity $duration $ease;-webkit-transition:opacity $duration $ease;-moz-transition:opacity $duration $ease;-o-transition:opacity $duration $ease}
+@mixin transform-anim($duration:200ms,$ease:ease-in-out){transition:transform $duration $ease;-webkit-transition:transform $duration $ease;-moz-transition:transform $duration $ease;-o-transition:transform $duration $ease}
